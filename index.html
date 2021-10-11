@@ -1,25 +1,135 @@
-
-<html>
-<head>
-     <title> TEAM DMMG </title>
-</head>
-<body>
-    <p>
-        <b>TEAM DMMG</b>
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="utf-8">
+        <title>Equipo #1 Grafico</title>
+        <link rel="stylesheet" href="style5.css">
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+      
         
-    </p>
-    <ul>
-        <li><strong> Maritza Diaz</strong></li>
-        <li>Lider</li>
-        <li><strong> Deisy Villamizar</strong></li>
-        <li>Desarrolladora 1</li>
-        <li><strong>Marla Camacho</strong> </li>
-        <span>Desarrolladora 2</span>
-        <li><strong>Gustavo Adolfo Toro</strong>  </li>
-        <li>- Desarrollador 3</li>
-       
-    </ul>
-    <p>Presentado a: Ing.Laura Pulido</p>
-</body>
+                google.charts.load('current', {packages: ['corechart', 'bar']});
+                google.charts.setOnLoadCallback(drawBarColors);
 
+            function drawBarColors() {
+                var data = google.visualization.arrayToDataTable([
+                    ['Perfiles', 'Masculino','Femenino'],
+                    ['Docente', 10, 60],
+                    ['Estudiante', 50, 80],
+                    ['Personal Admin', 37, 36],
+                    ['Personal De Aseo', 26, 28],
+                    
+                ]);
+
+                var options = {
+                    title: 'Información De Tamizaje',
+                    chartArea: {width: '30%'},
+                    colors: ['#b0120a', '#ffab91'],
+                    hAxis: {
+                    title: 'Cantidad De Usuarios',
+                    minValue: 0
+                    },
+                    vAxis: {
+                    
+                    }
+                };
+                var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
+                chart.draw(data, options);
+                }
+                </script>
+
+    </head>
+    <body class="grid-container" >
+
+       <header class="header">
+        <img src="equipo.png"width="1000px" height="150px" />
+        <p >
+            <b> TEAM DMMG</b>
+        </p>
+          <p>Programa Tamizaje Facultad de Salud<br/>
+           Universidad Autónoma De Bucaramanga<hr/></p> 
+       </header>
+       <nav class="navbar">
+        <ul>
+            Integrantes
+
+            <li ><strong> Maritza Diaz</strong></li>
+            <li> Lider</li>
+            <li><strong>Marla Camacho</strong> </li>
+            <span> Desarrolladora 1</span>
+            <li><strong>Gustavo Adolfo Toro</strong>  </li>
+            <li> Desarrollador 2</li>
+            <li><strong>Didier Guerrero</strong></li>
+            <li>Desarrollador3</li>
+        
+        </ul>
+
+       </nav>
+       <aside class="sidebar">
+        <form>
+            <table border="1" cellspacing="4" cellpadding="8">
+               <tr rowspan="3">
+                 <td >id</td>
+                 <td><input type="text" name="id" placeholder="Ingrese su id"/></td>
+               </tr>
+
+               <tr>
+                  <td>Nombre</td>
+                  <td><input type="text" name="nombre" placeholder="Ingrese Su Nombre"/></td>
+               </tr>
+
+                <tr>
+                   <td>Perfil:</td>
+                   <td>
+                       <select name="perfil"><option value="estudiante">Estudiante</option>
+                           <option value="docente">Docente</option>
+                           <option value="administrativo">Administrativo</option>
+                           <option value="aseo">Personal Serivio Aseo</option>
+                        </select>
+                   </td>
+                </tr>
+
+                <tr>
+                   <td>Teléfono:</td>
+                   <td><input type="text" name="telefono" placeholder="Ingrese Su numero"/></td>
+                </tr>
+
+                <tr>
+                    <td>Talla:</td>
+                    <td><input type="text" name="talla" placeholder="Ingrese Su Talla"/></td>
+                </tr>
+
+                <tr>
+                   <td>Peso:</td>
+                   <td><input type="text" name="peso" placeholder="Ingrese Su Peso"/></td>
+                </tr>
+
+                <tr>
+                   <td>Sexo:</td>
+                   <td><input type="radio"
+                    value="masculino" name="sexo" >Masculino
+                    <input type="radio" value="femenino" name="sexo">Femenino</td>
+                </tr>
+                <tr>
+                   <td colspan="2"><input type="submit" name="enviar" value="Enviar">
+                    <input type="reset" value="cancelar">
+                   </td>
+                </tr>
+          </table>
+        </form>
+       </aside>
+       <article class="main">
+        <div id="chart_div" ></div>
+
+       </article>
+       <footer class="footer">
+
+        <div class="footer">
+            <p></p>
+            <p>Presentado a: Ing.Laura Pulido</p>
+        </div>
+        
+       </footer>
+
+    </body>
 </html>

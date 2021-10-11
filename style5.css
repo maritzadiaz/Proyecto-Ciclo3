@@ -1,0 +1,89 @@
+@import url("https://fonts.google.com/specimen/Roboto");
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    height: 100%;
+}
+
+table{
+    width: 300%;
+    background-color: #CD6155;
+    color: white;
+    
+}
+
+body{
+    font-family: "public sans", sans-serif;
+    font-size: 1.2rem;
+    min-height: 100%;
+    background-color: white;
+}
+
+.grid-container > *{
+    
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+
+}
+
+.header{
+    grid-area: header;
+    background-color:#FADBD8 ;
+    
+   
+}
+
+.navbar{
+    grid-area: navbar;
+    
+
+}
+
+.sidebar{
+    grid-area: sidebar;
+    width: 200px;
+    
+}
+
+.main{
+    grid-area: main;
+   
+   
+}
+
+.footer{
+    grid-area: footer;
+    background-color: #FADBD8;
+   
+}
+
+.grid-container {
+    display: grid;
+    gap: 10px;
+    grid-template-areas: 
+    "header"
+    "navbar"
+    "main"
+    "sidebar"
+    "footer";
+
+}
+
+@media (min-width: 600px){
+    .grid-container{
+        grid-template-columns: 600px auto;
+        grid-template-rows: 250px 200px auto 100px;
+        grid-template-areas: 
+        "header header"
+        "navbar navbar"
+        "sidebar main"
+        "footer footer";
+
+    }
+}
