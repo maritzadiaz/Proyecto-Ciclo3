@@ -7,19 +7,23 @@
          </button>
             
                             <table class="table">
-                                <thead></thead>
+                                
                                 <tr>
                                     <th>Nombre</th>
-                                    <th>Email</th>
-                                    <th>documento</th>
-                                    <th>Perfil</th>
+                                    <th>Talla</th>
+                                    <th>Peso</th>
+                                    <th>IMC</th>
+                                    <th>Condicion</th>
+                                    <th>Recomendaciones</th>
                                     <th>Acciones</th>
                                 </tr>
                                 <tr v-for="persona in personas" :key='persona.id'>
                                     <td>{{persona.nombre}}  {{persona.apellido}}</td>
-                                    <td>{{persona.email}}</td>
-                                    <td>{{persona.numeroDocumento}}  {{persona.tipoDocumento}}</td>
-                                    <td>{{persona.perfil}}</td>
+                                    <td>{{persona.talla}}</td>
+                                    <td>{{persona.peso}} </td>
+                                    <td>{{persona.imc}}</td>
+                                    <td>{{persona.condicion}}</td>
+                                    <td>{{persona.recomendacion}}</td>
                                     <td><button v-on:click="eliminar(persona.id)">Eliminar</button></td>
                                 </tr>
                             </table>
@@ -44,31 +48,33 @@ export default {
    },
 
    methods:{
-      async MostrarPersonas(){
-          const requestOptions ={
-      method: "GET",
-      headers: {
-        "Authorization": this.token,
-        "Content-Type": "application/json"
-      }
-    };
-    const res=await fetch("http://localhost:8081/api/personas", requestOptions);
-   
-    this.personas=await res.json();
-      },
+     async MostrarPersonas(){
+                const requestOptions={
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": this.token,
+                    }
+                };
+                const respuesta = await fetch("http://localhost:8080/api/personas", requestOptions)
+                this.personas = await respuesta.json();
+               
+            },
 
-      async eliminar(id){
-          const requestOptions={
+            async eliminar(id){
+                const requestOptions={
                     method: "DELETE",
                     headers: {
                         "Content-Type": "application/json",
                         "Authorization": this.token,
                     }
                 };
-               await fetch(`http://localhost:8081/api/personas/${id}`, requestOptions)
-          console.log('se elimino', id)
-      }
+               await fetch(`http://localhost:8080/api/personas/${id}`, requestOptions)
+                ////actualizar la tabla para que desaparezca el eliminado
+                this.MostrarPersonas();
+            }
    }
+
 
 }
 </script>

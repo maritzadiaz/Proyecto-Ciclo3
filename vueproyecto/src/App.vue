@@ -41,12 +41,12 @@
   async beforeCreate(){
     const requestOptions ={
       method: "POST",
-      body: JSON.stringify({"id": 2}),
+      body: JSON.stringify({"id": 7}),
       headers: {
         "Content-Type": "application/json"
       }
     };
-    fetch("http://localhost:8081/api/auth", requestOptions)
+    fetch("http://localhost:8080/api/auth", requestOptions)
     .then(async response=>{
       const data = await response.json();
       if(!response.ok){

@@ -7,10 +7,10 @@
             <form class="d-flex">
               
               <button type="button" class="btn btn-outline-success" v-on:click="agregarpersona">Registrar</button>
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" v-model="persona.id">
-                    <button class="btn btn-outline-success" type="submit">Search
-                
-              </button>
+              
+              <input class="form-control form-control-sm" v-model="id" id="id" type="number">
+                <button class="btn btn-primary" v-on:click="buscar">Buscar</button>
+                              
             </form>
           </div>
         </nav>
@@ -172,6 +172,8 @@
           recomendacion:''
          
         },
+
+           id:'',
      
       }
     },
@@ -234,9 +236,9 @@
                 }
             };
         
-            const respuesta =  await fetch("http://localhost:8081/api/personas", requestOptions);
+            const respuesta =  await fetch("http://localhost:8080/api/personas", requestOptions);
             this.persona = await respuesta.json();
-             
+             console.log(this.persona)
             
     // Restablecemos el valor de la variables
     this.persona= {
@@ -264,7 +266,25 @@
   resetEstado() {
     this.correcto = false;
     this.error = false;
-  }
+  },
+
+  async buscar(){
+                ///si esta vacio el campo id, limpio campos y detengo con return
+               
+                const requestOptions = {
+                    method: "GET",
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Authorization": this.token,
+                }
+                };
+                console.log(this.persona.id)
+                const respuesta = await fetch(`http://localhost:8080/api/personas/${this.id}`, requestOptions);
+                this.persona = await respuesta.json();
+                console.log(this.persona);
+                            
+            },
+
 },
     computed: {
   nombreInvalido() {
