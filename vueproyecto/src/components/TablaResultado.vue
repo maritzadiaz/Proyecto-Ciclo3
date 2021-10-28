@@ -1,17 +1,19 @@
 <template>
 <div class="tablapersonas">
    
-        <h1>Mostrar Datos</h1>
-         <button class="btn btn-primary" v-on:click="MostrarPersonas">
-                  Resultados
-         </button>
-            
+        <center><h2>Mostrar Datos</h2></center>
+
+              
+              <center> <button  class="btn btn-outline-warning "   v-on:click="MostrarPersonas"> Resultados
+                        </button> </center>
+          
+                    
                             <table class="table">
                                 
                                 <tr>
                                     <th>Nombre</th>
                                     <th>Talla</th>
-                                    <th>Peso</th>
+                                   ne <th>Peso</th>
                                     <th>IMC</th>
                                     <th>Condicion</th>
                                     <th>Recomendaciones</th>

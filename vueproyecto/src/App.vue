@@ -1,12 +1,13 @@
 
 <template>
        
-      <img src="./assets/LogoUnab.png" width="400" height="150" />
+      
      <div id="app" class="container" >
           <div class="row">
               <div class="col-md-12"><br>
-                <h2>Calcular IMC</h2>
-                <h3>Ingrese Tus Datos</h3>
+              <center><img src="./assets/LogoUnab.png"  /></center>
+                <center><h2 >Registro Para Prueba de Tamizaje Usuarios Unab</h2></center>
+                <center><h3>Ingrese Sus Datos</h3></center>
               </div>
             </div>
        <div class="row">
@@ -16,8 +17,13 @@
       </div>
     </div>
   </div>
-
-  <footer>EQUIPO #1 GRUPO G-36 MARITZA DIAZ - MARLACAMACHO - GUSTAVOTORO</footer>
+  
+  <div class="fixed-bottom"  >
+     <footer ><h5>EQUIPO #1 GRUPO G-36</h5> 
+     <h6>MARITZA DIAZ - MARLA CAMACHO - GUSTAVO TORO</h6>
+    </footer>
+  </div>
+  
   
 </template>
 <script>
@@ -41,7 +47,7 @@
   async beforeCreate(){
     const requestOptions ={
       method: "POST",
-      body: JSON.stringify({"id": 7}),
+      body: JSON.stringify({"id": 10}),
       headers: {
         "Content-Type": "application/json"
       }
@@ -70,19 +76,23 @@
 
 <style>
    
-      
+   img{
+  max-width: 25%;
+  height: auto;
+  
+  
+   }
   h{
     text-align: center;
     border-radius: 20px;
     background-color: aliceblue;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+    
   }
 
   footer{
     text-align: center;
-    border-radius: 20px;
-    background-color: aliceblue;
-    height: 50px;
+     height: 50px;
   }
 
  

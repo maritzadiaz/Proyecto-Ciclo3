@@ -5,11 +5,10 @@
       
           <div class="container-fluid"><br>
             <form class="d-flex">
-              
-              <button type="button" class="btn btn-outline-success" v-on:click="agregarpersona">Registrar</button>
-              
-              <input class="form-control form-control-sm" v-model="id" id="id" type="number">
-                <button class="btn btn-primary" v-on:click="buscar">Buscar</button>
+                     
+                <input class="form-control form-control-sm" v-model="id" id="id" type="number">
+                <button class="btn btn-outline-warning" v-on:click="buscar">Buscar</button>
+                <button type="button" class="btn btn-outline-warning" v-on:click="agregarpersona">Registrar</button>
                               
             </form>
           </div>
@@ -21,6 +20,7 @@
                       
               <div class="col-md-4">
                   <div class="form-group">
+                    <label>Nombre</label>
                     
                         <input placeholder="Nombre" v-model="persona.nombre" type="text" class="form-control" :class="{ 'is-invalid': procesando && nombreInvalido }"
                             @focus="resetEstado"
@@ -30,6 +30,7 @@
              
               <div class="col-md-4"> 
                   <div class="form-group">
+                    <label >Apellido</label>
                   
                         <input
                             placeholder="Apellido"
@@ -44,7 +45,7 @@
 
                    <div class="col-md-4"> 
                               <div class="form-group">
-                                  
+                                  <label >Perfil</label>
                                       <select name="perfil" v-model="persona.perfil" class="form-control">
                                           <option value="estudiante">Estudiante</option>
                                           <option value="docente">Docente</option>
@@ -93,20 +94,10 @@
                                             @focus="resetEstado" />
                                         </div>
                                   </div>
-                  
-                                <div>
-                                  <label>Género</label>
-                                  <input type="radio" id="femenino" name="genero" v-model="persona.genero" value="f">
-                                  <label>Femenino</label>
-
-                                  <input type="radio" id="masculino" name="genero" v-model="persona.genero" value="M">
-                                  <label>Masculino</label>
-                                
-                                </div>
-          
+                                                           
                         <div class="col-md-4">
                             <div class="form-group">
-                          
+                                 <label>Talla</label>
                                   <input
                                     placeholder="Talla(Cm)"
                                     v-model="persona.talla"
@@ -118,6 +109,7 @@
                           </div>
                           <div class="col-md-4">
                               <div class="form-group">
+                                <label >Peso</label>
                                     <input
                                         placeholder="Peso(Kg)"
                                         v-model="persona.peso"
@@ -127,8 +119,21 @@
                                         @focus="resetEstado" />
                                 </div>
                             </div>
-           </div>
-                            
+                      
+                         <div class="col-md-4">
+                            <div class="form-group">
+                               <div>
+                                  <label>Género</label>
+                                  <input type="radio" id="femenino" name="genero" v-model="persona.genero" value="f">
+                                  <label>Femenino</label>
+
+                                  <input type="radio" id="masculino" name="genero" v-model="persona.genero" value="M">
+                                  <label>Masculino</label>
+                                
+                                </div>
+                              </div>
+                         </div>
+                      </div> 
 
                             <div class="row">
                                 <div class="col-md-12">
